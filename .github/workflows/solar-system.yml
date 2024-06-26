@@ -21,8 +21,17 @@ jobs:
       run: npm install
     - name: Unit Testing
       run: npm test
-    - name: Upload Artifacts
+    - name: Code Coverage
+      run: npm run coverage
+    - name: Upload Test Results
       uses: actions/upload-artifact@v4
       with:
         name: UT Results
         path: test-results.xml
+    - name: Upload Coverage
+      uses: actions/upload-artifact@v4
+      with:
+        name: Upload Coverage
+        path: coverage
+       
+
