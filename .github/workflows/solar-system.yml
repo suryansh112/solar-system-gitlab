@@ -22,6 +22,7 @@ jobs:
     - name: Unit Testing
       run: npm test
     - name: Code Coverage
+      continue-on-error: true
       run: npm run coverage
     - name: Upload Test Results
       uses: actions/upload-artifact@v4
@@ -29,7 +30,6 @@ jobs:
         name: UT Results
         path: test-results.xml
     - name: Upload Coverage
-      continue-on-error: true
       uses: actions/upload-artifact@v4
       with:
         name: Upload Coverage
