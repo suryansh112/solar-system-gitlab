@@ -29,6 +29,7 @@ jobs:
         name: UT Results
         path: test-results.xml
     - name: Upload Coverage
+      continue-on-error: true
       uses: actions/upload-artifact@v4
       with:
         name: Upload Coverage
