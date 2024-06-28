@@ -43,7 +43,7 @@ jobs:
         path: coverage
   docker:
     name: Containerization
-    needs: unit-testing
+    needs: unit-test
     runs-on: ubuntu-latest
     steps:
     - name: Docker login
