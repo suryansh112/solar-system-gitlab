@@ -42,7 +42,7 @@ jobs:
         name: Upload Coverage
         path: coverage
   docker:
-  - name: Containerization
+    name: Containerization
     needs: unit-testing
     runs-on: ubuntu-latest
     steps:
