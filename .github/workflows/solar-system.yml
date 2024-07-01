@@ -46,6 +46,8 @@ jobs:
     needs: unit-test
     runs-on: ubuntu-latest
     steps:
+    - name: Checkout Source Code
+      uses: actions/checkout@v4
     - name: Docker login
       uses: docker/login-action@v3
       with:
@@ -55,20 +57,20 @@ jobs:
       uses: docker/build-push-action@v6
       with:
         run: pwd
-        context: ../
+        context: .
         push: false
         tags: ${{secrets.DOCKER_USERNAME}}/solar-system:${{github.sha}}
     - name: Docker run
       run: |
         docker images
         docker run -name solar-system-app -d \
-             -p 3000:3000 \
-             -e MONGO_URI= $MONGO_URI \
-             -e MONGO_USERNAME: $MONGO_USERNAME \
-             -e MONGO_PASSWORD: $MONGO_PASSWORD \
-             ${{secrets.DOCKER_USERNAME}}/solar-system:${{github.sha}}
-             export IP=(docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' solar-system-app)
-             echo $IP
-             echo Testing url image using wget
-             wget -q -o 192.168.1.4:3000/live | grep live
+          -p 3000:3000 \
+          -e MONGO_URI= $MONGO_URI \
+          -e MONGO_USERNAME: $MONGO_USERNAME \
+          -e MONGO_PASSWORD: $MONGO_PASSWORD \
+          ${{secrets.DOCKER_USERNAME}}/solar-system:${{github.sha}}
+          export IP=(docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' solar-system-app) 
+          echo $IP 
+          echo Testing url image using wget 
+          wget -q -o 192.168.1.4:3000/live | grep live
 
