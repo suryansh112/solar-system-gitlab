@@ -56,7 +56,7 @@ jobs:
       with:
         context: .
         push: false
-        tags: ${{vars.DOCKER_USERNAME}}/solar-system:${{github.sha}}
+        tags: ${{secrets.DOCKER_USERNAME}}/solar-system:${{github.sha}}
     - name: Docker run
       run: |
         docker images
