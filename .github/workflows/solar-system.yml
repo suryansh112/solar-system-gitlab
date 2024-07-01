@@ -46,7 +46,7 @@ jobs:
     needs: unit-test
     runs-on: ubuntu-latest
     permissions:
-    - write
+      packages: write
     steps:
     - name: Checkout Source Code
       uses: actions/checkout@v4
