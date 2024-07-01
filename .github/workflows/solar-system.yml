@@ -60,7 +60,7 @@ jobs:
         context: .
         push: false
         tags: ${{secrets.DOCKER_USERNAME}}/solar-system:${{github.sha}}
-    - name: Docker run
+    - name: Docker Run
       run: |
         docker images
         docker run --name solar-system-app -d \
@@ -73,4 +73,9 @@ jobs:
         echo $IP 
         echo Testing url image using wget 
         wget -q -O - 127.0.0.1:3000/live | grep live
+    - name: Docker Push
+      uses: docker/build-push-action@v6
+      with:
+        push: true
+        tags: ${{secrets.DOCKER_USERNAME}}/solar-system:${{github.sha}}
 
