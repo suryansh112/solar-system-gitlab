@@ -94,6 +94,9 @@ jobs:
     steps:
     - name: Install kubectl CLI
       uses: azure/setup-kubectl@v3
+      with:
+        version: 1.26.0
+    - name: Check kubernetes version
       run: |
           kubectl version --short
           kubectl get nodes
