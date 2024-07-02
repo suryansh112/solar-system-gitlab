@@ -106,6 +106,7 @@ jobs:
         method: kubeconfig
         kubeconfig: ${{secrets.KUBE_CONFIG}}
     - name: Check kubernetes version
+      validate_certs: no
       run: |
           kubectl version --short
           kubectl get nodes
