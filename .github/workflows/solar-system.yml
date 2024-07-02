@@ -108,5 +108,5 @@ jobs:
         context: kubernetes-admin@kubernetes
     - name: Check kubernetes version
       run: |
-          kubectl version --short
-          kubectl get nodes
+          kubectl version --short --insecure-skip-tls-verify
+          kubectl get nodes --insecure-skip-tls-verify
