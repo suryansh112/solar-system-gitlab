@@ -105,7 +105,6 @@ jobs:
       with:
         method: kubeconfig
         kubeconfig: ${{secrets.KUBE_CONFIG}}
-        context: kubernetes-admin@kubernetes
     - name: Check kubernetes version
       run: |
           kubectl version --short
