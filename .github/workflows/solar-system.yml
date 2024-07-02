@@ -107,5 +107,5 @@ jobs:
         kubeconfig: ${{secrets.KUBE_CONFIG}}
     - name: Check kubernetes version
       run: |
-          kubectl version --short
+          kubectl version --short --insecure-skip-tls-verify
           kubectl get nodes
