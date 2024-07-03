@@ -134,7 +134,6 @@ jobs:
 
     - name: Create Secret
       run: |
-          kubectl create namespace ${{secrets.NAMESPACE}} 
           kubectl create secret generic mongo-db-creds --from-literal=MONGO_URI=$MONGO_URI --from-literal=MONGO_USERNAME=$MONGO_USERNAME --from-literal=MONGO_PASSWORD=$MONOG_PASSWORD -n ${{secrets.NAMESPACE}} --save-config --dry-run=client -o yaml | kubectl apply -f -
       
     - name: Deploy Yamls  
