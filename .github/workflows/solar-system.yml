@@ -123,8 +123,8 @@ jobs:
     - name: Deployment to Kubernetes Cluster
       uses: cschleiden/replace-tokens@v1
       with:
-        tokenPrefix: ''
-        tokenSuffix: ''
+        tokenPrefix: '{'
+        tokenSuffix: '}'
         files: '["kubernetes/development/*.yaml"]'
       env:
         NAMESPACE: ${{secrets.NAMESPACE}}
