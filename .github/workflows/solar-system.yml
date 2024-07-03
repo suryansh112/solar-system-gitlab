@@ -126,11 +126,11 @@ jobs:
         tokenPrefix: '{'
         tokenSuffix: '}'
         files: '[kubernetes/development/*.yaml]'
-        env:
-          NAMESPACE: ${{secrets.NAMESPACE}}
-          REPLICAS: ${{secrets.REPLICAS}}
-          IMAGE: ${{secrets.DOCKER_USERNAME}}/solar-system:${{github.sha}}
-          INGRESS_IP: ${{env.INGRESS_IP}}
+      env:
+        NAMESPACE: ${{secrets.NAMESPACE}}
+        REPLICAS: ${{secrets.REPLICAS}}
+        IMAGE: ${{secrets.DOCKER_USERNAME}}/solar-system:${{github.sha}}
+        INGRESS_IP: ${{env.INGRESS_IP}}
 
     - name: Create Secret
       run: kubectl create secret mongo-db-creds --from-literal=MONGO_URI=$MONGO_URI --from-literal=MONGO_USERNAME=$MONGO_USERNAME --from-literal=MONGO_PASSWORD=$MONOG_PASSWORD -n ${{secrets.NAMESPACE}} --sava-config --dry-run=client -o yaml | kubectl apply -f -
