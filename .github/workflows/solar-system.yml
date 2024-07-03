@@ -106,11 +106,11 @@ jobs:
       with:
         version: v1.26.0
 
-    - name: Set Context
-      uses: azure/k8s-set-context@v4
-      with:
-        method: kubeconfig
-        kubeconfig: ${{secrets.KUBE_CONFIG}}
+    # - name: Set Context
+    #   uses: azure/k8s-set-context@v4
+    #   with:
+    #     method: kubeconfig
+    #     kubeconfig: ${{secrets.KUBE_CONFIG}}
     - name: Check kubernetes version
       run: |
           kubectl version --short
