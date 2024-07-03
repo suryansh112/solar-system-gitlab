@@ -137,4 +137,4 @@ jobs:
       
     - name: Deploy Yamls  
       run: |
-            kubectl apply -f kubernetes/deployment/*.yaml 
+          kubectl apply -f kubernetes/deployment/*.yaml 
