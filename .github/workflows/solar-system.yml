@@ -126,6 +126,7 @@ jobs:
         tokenPrefix: '{'
         tokenSuffix: '}'
         files: '["kubernetes/development/*.yaml"]'
+      run : cat kubernetes/development/*.yaml
       env:
         NAMESPACE: ${{secrets.NAMESPACE}}
         REPLICAS: ${{secrets.REPLICAS}}
