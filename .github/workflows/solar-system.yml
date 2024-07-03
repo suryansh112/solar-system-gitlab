@@ -1,12 +1,12 @@
 name: Solar-System
 on:
   workflow_dispatch:
-  #push:
+  push:
 env:
   MONGO_URI: ${{vars.MONGO_URI}}
   MONGO_USERNAME: ${{secrets.MONGO_USER}}
   MONGO_PASSWORD: ${{secrets.MONGO_PASSWORD}}
-  
+
 jobs:
   unit-test:
     name: unit-testing
