@@ -113,6 +113,7 @@ jobs:
     #     kubeconfig: ${{secrets.KUBE_CONFIG}}
     - name: Check kubernetes version
       run: |
+          aws eks update-kubeconfig --name solar-system-cluster
           kubectl version --short
           kubectl get nodes
     # - name: Get Ingress IP
