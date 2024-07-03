@@ -140,4 +140,5 @@ jobs:
       
     - name: Deploy Yamls  
       run: |
+          kubectl delete ingress solar-system -n ingress-solar-system
           kubectl apply -f kubernetes/development/ 
