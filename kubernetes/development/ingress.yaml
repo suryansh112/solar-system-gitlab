@@ -10,7 +10,7 @@ metadata:
   namespace: {NAMESPACE}
 spec:
     rules:
-     - host: solar-system-${NAMESPACE}.${INGRESS_IP}.nip.io
+     - host: solar-system-{NAMESPACE}.{INGRESS_IP}.nip.io
      - http:
         paths:
         - backend:
@@ -22,5 +22,5 @@ spec:
           pathType: Prefix
     tls:
     - hosts:
-      - solar-system-${NAMESPACE}.${INGRESS_IP}.nip.io
+      - solar-system-{NAMESPACE}.{INGRESS_IP}.nip.io
       secretName: ingress-local-tls
