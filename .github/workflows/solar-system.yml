@@ -116,9 +116,9 @@ jobs:
           aws eks update-kubeconfig --name testCluster
           kubectl version --short
           kubectl get nodes
-    # - name: Get Ingress IP
-    #   run: |
-    #      echo "INGRESS_IP=$(kubectl -n ingress-nginx get service ingress-nginx-controller -o jsonpath="{.status.loadBalancer.ingress[0].ip}")" >> $GITHUB_ENV 
+    - name: Get Ingress IP
+      run: |
+         echo "INGRESS_IP=$(kubectl -n ingress-nginx get service ingress-nginx-controller -o jsonpath="{.status.loadBalancer.ingress[0].ip}")" >> $GITHUB_ENV 
 
     - name: Deployment to Kubernetes Cluster
       uses: cschleiden/replace-tokens@v1
