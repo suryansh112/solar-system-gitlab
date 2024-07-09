@@ -141,3 +141,4 @@ jobs:
     - name: Deploy Yamls  
       run: |
           kubectl apply -f kubernetes/development/ 
+          echo {{$env.INGRESS_IP}}
